@@ -78,3 +78,9 @@ npm run build
 ## 部署
 
 完整小白步骤见 [docs/VERCEL_DEPLOYMENT_GUIDE.md](docs/VERCEL_DEPLOYMENT_GUIDE.md)。
+
+## Private Deployment / Customization
+
+For private deployment, B2B lead-generation workflow customization, data-source integration, or sales automation consulting, scan WeChat to contact me.
+
+<img src="assets/wechat-qr.png" alt="WeChat QR code" width="220" />
