@@ -2,6 +2,9 @@
 
 > Commercial use: this repository is published for portfolio/demo evaluation. Commercial use or resale requires written permission. See `COMMERCIAL_USE.md`.
 
+## Screenshot
+
+![AI Trade SOP Agent workflow](assets/screenshots/main-workflow.png)
 
 这是第一阶段 MVP：`AI外贸获客数字员工`。产品形态是对话 + 数字员工，第一栏选择员工，下指令时用 `@外贸获客员工`，系统按 9 步 SOP 自动生成海外客户开发包。
 
