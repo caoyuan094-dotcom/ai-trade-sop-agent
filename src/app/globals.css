@@ -1,0 +1,926 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f6f7;
+  --surface: #ffffff;
+  --surface-soft: #f8fafb;
+  --surface-strong: #edf3f1;
+  --text: #14211f;
+  --muted: #6d7b78;
+  --line: #dde6e3;
+  --line-strong: #cbd9d4;
+  --accent: #157f67;
+  --accent-strong: #0e5f4d;
+  --accent-soft: #e8f5f1;
+  --blue: #3268c8;
+  --warning: #b65b37;
+  --warning-soft: #fff1ec;
+  --shadow: 0 18px 46px rgba(26, 43, 39, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+.sdrApp {
+  display: grid;
+  grid-template-columns: 260px minmax(500px, 1fr) minmax(360px, 430px);
+  min-height: 100vh;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.8), transparent 34%),
+    var(--bg);
+}
+
+.sdrSidebar,
+.resultDock {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: auto;
+}
+
+.sdrSidebar {
+  border-right: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.86);
+  padding: 18px;
+}
+
+.sdrBrand,
+.agentItem,
+.quotaBox,
+.workHeader,
+.commandTop,
+.commandActions,
+.softControl,
+.panelHeader,
+.statusLine,
+.dockTitle,
+.focusHeader,
+.leadList article,
+.followBox p,
+.integrationStrip span,
+.warningText,
+.successText {
+  display: flex;
+  align-items: center;
+}
+
+.sdrBrand {
+  gap: 11px;
+  margin-bottom: 26px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brandMark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 10px;
+  background: #11251f;
+  color: #fff;
+  font-weight: 900;
+}
+
+.sdrBrand strong,
+.sdrBrand span,
+.agentItem strong,
+.agentItem small {
+  display: block;
+}
+
+.sdrBrand span,
+.agentItem small,
+.sideLabel,
+.templateButton,
+.quotaBox span,
+.eyebrow,
+.softControl,
+.compactGrid label,
+.textareaGrid label,
+.fullField,
+.statusLine p,
+.metricPanel small,
+.focusLead small,
+.focusLead p,
+.leadList small,
+.emptyDock p {
+  color: var(--muted);
+}
+
+.sideSection {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.sideLabel {
+  margin: 0 0 2px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.agentList {
+  display: grid;
+  gap: 7px;
+}
+
+.agentItem {
+  width: 100%;
+  min-height: 62px;
+  gap: 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  padding: 9px;
+  text-align: left;
+}
+
+.agentItem:hover,
+.templateButton:hover,
+.ghostButton:hover,
+.panelHeader button:hover {
+  background: var(--surface-soft);
+}
+
+.agentItem.active {
+  border-color: rgba(21, 127, 103, 0.28);
+  background: var(--accent-soft);
+}
+
+.agentItem span {
+  min-width: 0;
+  flex: 1;
+}
+
+.agentItem strong,
+.agentItem small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agentItem em {
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--accent-strong);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 800;
+  padding: 4px 7px;
+}
+
+.templateButton {
+  min-height: 34px;
+  border-radius: 9px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0 10px;
+  text-align: left;
+}
+
+.quotaBox {
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface-soft);
+  padding: 12px;
+}
+
+.quotaBox svg {
+  color: var(--accent);
+}
+
+.quotaBox strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 13px;
+}
+
+.quotaBox span {
+  display: block;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.sdrMain {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  min-height: 100vh;
+  padding: 22px 24px 26px;
+}
+
+.workHeader {
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.workHeader h1,
+.panelHeader h2,
+.metricPanel h2 {
+  margin-bottom: 0;
+  letter-spacing: 0;
+}
+
+.workHeader h1 {
+  font-size: 25px;
+  line-height: 1.22;
+}
+
+.ghostButton,
+.panelHeader button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  gap: 7px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 800;
+  padding: 0 11px;
+}
+
+.commandPanel,
+.infoPanel,
+.statusPanel,
+.reportArea,
+.metricPanel,
+.focusLead,
+.leadList,
+.draftBox,
+.followBox,
+.emptyDock,
+.integrationStrip {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 8px 28px rgba(26, 43, 39, 0.04);
+}
+
+.commandPanel {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+}
+
+.commandTop {
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.mention {
+  border-radius: 999px;
+  background: #11251f;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 6px 10px;
+}
+
+.statePill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  padding: 5px 9px;
+}
+
+.statePill.online {
+  border-color: rgba(21, 127, 103, 0.24);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.commandPanel textarea {
+  width: 100%;
+  min-height: 116px;
+  border: 0;
+  border-radius: 10px;
+  outline: none;
+  resize: vertical;
+  background: var(--surface-soft);
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.6;
+  padding: 18px;
+}
+
+.commandActions {
+  display: grid;
+  grid-template-columns: auto minmax(160px, 1fr) auto;
+  gap: 9px;
+}
+
+.softControl {
+  position: relative;
+  min-height: 40px;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  cursor: pointer;
+  padding: 0 12px;
+}
+
+.softControl input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.linkControl input,
+.compactGrid input,
+.fullField input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+}
+
+.primaryButton,
+.exportButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  gap: 8px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 900;
+  padding: 0 14px;
+}
+
+.primaryButton:disabled,
+.exportButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.uploadedStrip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.uploadedStrip span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  padding: 5px 9px;
+}
+
+.infoPanel,
+.statusPanel,
+.reportArea {
+  display: grid;
+  gap: 13px;
+  padding: 14px;
+}
+
+.panelHeader {
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.panelHeader h2 {
+  font-size: 18px;
+}
+
+.compactGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.textareaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.compactGrid label,
+.textareaGrid label,
+.fullField {
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.compactGrid input,
+.fullField input,
+.textareaGrid textarea {
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface-soft);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 10px;
+}
+
+.textareaGrid textarea {
+  min-height: 74px;
+  outline: none;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.customerChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.customerChips button {
+  min-height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 0 11px;
+}
+
+.customerChips button.active {
+  border-color: rgba(21, 127, 103, 0.3);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.statusLine {
+  gap: 10px;
+}
+
+.messageIcon {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.statusLine p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.stepRail {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.stepRail span {
+  display: grid;
+  min-height: 48px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.stepRail span.done {
+  border-color: rgba(21, 127, 103, 0.22);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.stepRail b {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 999px;
+  background: #fff;
+  color: inherit;
+  font-size: 11px;
+}
+
+.warningText,
+.successText {
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.warningText {
+  color: var(--warning);
+}
+
+.successText {
+  color: var(--accent-strong);
+}
+
+.reportCards {
+  display: grid;
+  gap: 8px;
+}
+
+.reportCards details {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface-soft);
+}
+
+.reportCards summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 11px 12px;
+}
+
+pre {
+  max-height: 260px;
+  overflow: auto;
+  margin: 0;
+  border-top: 1px solid var(--line);
+  background: #fff;
+  color: #33423f;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  padding: 12px;
+  white-space: pre-wrap;
+}
+
+.resultDock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-left: 1px solid var(--line);
+  background: #eef3f1;
+  padding: 16px;
+}
+
+.metricPanel,
+.focusLead,
+.leadList,
+.draftBox,
+.followBox,
+.emptyDock,
+.integrationStrip {
+  padding: 13px;
+}
+
+.metricPanel h2 {
+  margin-top: 2px;
+  font-size: 27px;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  margin: 12px 0;
+}
+
+.metricGrid span {
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  padding: 8px 4px;
+}
+
+.metricGrid b {
+  color: var(--text);
+  font-size: 19px;
+}
+
+.exportButton {
+  width: 100%;
+}
+
+.focusLead {
+  display: grid;
+  gap: 10px;
+}
+
+.focusHeader {
+  gap: 10px;
+}
+
+.gradeBadge,
+.gradeDot {
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  color: #fff;
+  font-weight: 900;
+}
+
+.gradeBadge {
+  width: 42px;
+  height: 42px;
+}
+
+.gradeDot {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  font-size: 12px;
+}
+
+.gradeA {
+  background: var(--accent);
+}
+
+.gradeB {
+  background: var(--blue);
+}
+
+.gradeC {
+  background: #85908d;
+}
+
+.focusHeader strong,
+.focusHeader small {
+  display: block;
+}
+
+.focusLead p {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.miniLinkGrid {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 7px;
+}
+
+.miniLinkGrid a,
+.miniLinkGrid span {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 7px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.riskList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.riskList em {
+  border: 1px solid rgba(182, 91, 55, 0.22);
+  border-radius: 999px;
+  background: var(--warning-soft);
+  color: var(--warning);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+  padding: 5px 8px;
+}
+
+.dockTitle {
+  gap: 7px;
+  margin-bottom: 10px;
+}
+
+.dockTitle svg {
+  color: var(--accent);
+}
+
+.leadList {
+  display: grid;
+  gap: 8px;
+}
+
+.leadList article {
+  gap: 9px;
+  border-top: 1px solid var(--line);
+  padding-top: 9px;
+}
+
+.leadList article:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.leadList article div {
+  min-width: 0;
+  flex: 1;
+}
+
+.leadList strong,
+.leadList small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leadList strong {
+  font-size: 13px;
+}
+
+.leadList b {
+  color: var(--accent-strong);
+}
+
+.draftBox pre {
+  max-height: 280px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.followBox {
+  display: grid;
+  gap: 8px;
+}
+
+.followBox p {
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+}
+
+.followBox p:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.followBox b {
+  color: var(--accent-strong);
+  font-size: 12px;
+}
+
+.followBox span {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.followBox em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+}
+
+.emptyDock {
+  display: grid;
+  min-height: 260px;
+  place-items: center;
+  text-align: center;
+}
+
+.emptyDock svg {
+  color: var(--accent);
+}
+
+.emptyDock strong {
+  margin-top: 10px;
+}
+
+.emptyDock p {
+  max-width: 230px;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.integrationStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.integrationStrip span {
+  gap: 5px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-soft);
+  padding: 6px 8px;
+}
+
+@media (max-width: 1240px) {
+  .sdrApp {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+
+  .resultDock {
+    grid-column: 1 / -1;
+    height: auto;
+    max-height: none;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .sdrApp {
+    grid-template-columns: 1fr;
+  }
+
+  .sdrSidebar,
+  .resultDock {
+    position: static;
+    height: auto;
+  }
+
+  .sdrSidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .agentList,
+  .compactGrid,
+  .textareaGrid,
+  .commandActions,
+  .stepRail,
+  .metricGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .workHeader,
+  .panelHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sdrMain {
+    padding: 16px;
+  }
+
+  .commandPanel textarea {
+    font-size: 16px;
+  }
+}
